@@ -2,6 +2,20 @@
 
 *RandFile.m* is a package for Mathematica computer algebra system which allows the exploitation of local files as sources of random data. RandFile allows to (re)use random data obtained from different sources and stored in a file.
 
+
+# Installation
+
+In order to use the package, copy the downloaded file to .Mathematica/.Applications directory in your home directory and rename it to RandFile.m.
+
+# Documentation
+
+Package documentation is provided in the form of ssage strings in `RandFile_Messages.nb` file.
+
+# Examples
+
+Usage examples and sample random files are provided in `examples` directory.
+
+
 # Package history
 
 * 09/11/2018  Package uploded to GitHub.
