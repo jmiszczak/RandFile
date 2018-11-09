@@ -1,0 +1,158 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      6733,        149]
+NotebookOptionsPosition[      5918,        116]
+NotebookOutlinePosition[      6581,        142]
+CellTagsIndexPosition[      6457,        136]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"?", "TrueRandomReal"}]], "Input",
+ CellChangeTimes->{{3.6491386129612093`*^9, 3.649138614707176*^9}, {
+  3.64913894392598*^9, 3.649138947483973*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"TrueRandomReal[] produces 32-bit real number in \
+[0,1].\\nTrueRandomReal[b] produces 32-bit real number in \
+[0,b].\\nTrueRandomReal[{a,b}] produces 32-bit real number in \
+[a,b].\\nTrueRandomReal[b, n] produces n 32-bit real numbers in \
+[0,b].\\nTrueRandomReal[{a,b}, n] produces n 32-bit real numbers in \
+[a,b].\\nTrueRandomReal[b, {d1,d2,...,dk}] produces a \
+{d1,d2,...,dk}-dimensional array of 32-bit real numbers in \
+[0,b].\\nTrueRandomReal[{a,b}, {d1,d2,...,dk}] produces a \
+{d1,d2,...,dk}-dimensional array of 32-bit real numbers in \
+[a,b].\\n\\nTrueRandomReal[inStream] uses bytes from the input stream \
+inStream to produce 32-bit real number in [0,1].\\nTrueRandomReal[b, \
+inStream] uses bytes from the input stream inStream to produce 32-bit real \
+number in [0,b].\\nTrueRandomReal[b, n, inStream] uses bytes from the input \
+stream inStream to produce to produce n 32-bit real numbers in \
+[0,b].\\nTrueRandomReal[{a,b}, inStream] uses bytes from the input stream \
+inStream to produce 32-bit real number in [a,b].\\nTrueRandomReal[{a,b}, n, \
+inStream] uses bytes from the input stream inStream to produce n 32-bit real \
+numbers in [a,b].\\nTrueRandomReal[b, {d1,d2,...,dk}, inStream] uses bytes \
+from the input stream inStream to produce a {d1,d2,...,dk}-dimensional array \
+of 32-bit real numbers in [0,b].\\nTrueRandomReal[{a,b}, {d1,d2,...,dk}, \
+inStream] uses bytes from the input stream inStream to produce a \
+{d1,d2,...,dk}-dimensional array of 32-bit real numbers in \
+[a,b].\\n\\nTrueRandomReal[NormalDistribution[\[Mu],\[Sigma]]] produces \
+32-bit real number from \
+NormalDistribution[\[Mu],\[Sigma]].\\nTrueRandomReal[NormalDistribution[\[Mu],\
+\[Sigma]], n] produces n 32-bit real numbers from NormalDistribution[\[Mu],\
+\[Sigma]].\\nTrueRandomReal[NormalDistribution[\[Mu],\[Sigma]], \
+{d1,d2,...,dk}] produces a {d1,d2,...,dk}-dimensional array of 32-bit real \
+numbers from \
+NormalDistribution[\[Mu],\[Sigma]].\\nTrueRandomReal[NormalDistribution[\[Mu],\
+\[Sigma]], inStream] uses bytes from the input stream inStream to produce \
+32-bit real number from \
+NormalDistribution[\[Mu],\[Sigma]].\\nTrueRandomReal[NormalDistribution[\[Mu],\
+\[Sigma]], n, inStream] uses bytes from the input stream inStream to produce \
+n 32-bit real numbers from \
+NormalDistribution[\[Mu],\[Sigma]].\\nTrueRandomReal[NormalDistribution[\[Mu],\
+\[Sigma]], {d1,d2,...,dk}, inStream] uses bytes from the input stream \
+inStream to produce a {d1,d2,...,dk}-dimensional array of 32-bit real numbers \
+from NormalDistribution[\[Mu],\[Sigma]].\"\>", "MSG"]], "Print", "PrintUsage",
+ 
+ CellChangeTimes->{3.649479543132338*^9},
+ CellTags->"Info3649486742-8338373"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "TrueRandomInteger"}]], "Input",
+ CellChangeTimes->{{3.649479317958469*^9, 3.6494793188067703`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"TrueRandomInteger[] produces an integer number in \
+[0,1].\\nTrueRandomInteger[n] produces an integer number in \
+[0,n].\\nTrueRandomInteger[n,k] produces k integer numbers in \
+[0,n].\\nTrueRandomInteger[{a,b}] produces an integer number in \
+[a,b).\\nTrueRandomInteger[{a,b}, k] produces k integer numbers in \
+[a,b).\\nTrueRandomInteger[{a,b}, {d1,d2,...,dk}] produces a \
+{d1,d2,...,dk}-dimensional array of integer numbers in \
+[a,b).\\n\\nTrueRandomInteger[inStream] uses bytes from input stream inStream \
+to produce a integer number in [0,1).\\nTrueRandomInteger[n, inStream] uses \
+bytes from input stream inStream to produce a integer number in \
+[0,n).\\nTrueRandomInteger[n, k, inStream] uses bytes from input stream \
+inStream to produce k integer numbers in [0,n).\\nTrueRandomInteger[{a,b}, \
+inStream] uses bytes from input stream inStream to produce an integer number \
+in [a,b).\\nTrueRandomInteger[{a,b}, k, inStream] uses bytes from input \
+stream inStream to produce k integer numbers in \
+[a,b).\\nTrueRandomInteger[{a,b}, {d1,d2,...,dk}, inStream] uses bytes from \
+input stream inStream to produce a {d1,d2,...,dk}-dimensional array of \
+integer numbers in [a,b).\\n\\nTrueRandomInteger[PoissonDistribution[\[Mu]]] \
+produces random integer from \
+PoissonDistribution[\[Mu]].\\nTrueRandomInteger[PoissonDistribution[\[Mu]], \
+k] produces k random integers from \
+PoissonDistribution[\[Mu]].\\nTrueRandomInteger[PoissonDistribution[\[Mu]], \
+{d1,d2,...,dk}] produces a {d1,d2,...,dk}-dimensional array of integer \
+numbers from \
+PoissonDistribution[\[Mu]].\\nTrueRandomInteger[PoissonDistribution[\[Mu]], \
+inStream] uses bytes from input stream inStream to produce a random integer \
+from PoissonDistribution[\[Mu]].\\nTrueRandomInteger[PoissonDistribution[\[Mu]\
+], k, inStream] uses bytes from input stream inStream to produce k random \
+integers from \
+PoissonDistribution[\[Mu]].\\nTrueRandomInteger[PoissonDistribution[\[Mu]], \
+{d1,d2,...,dk}, inStream] uses bytes from input stream inStream to produce ka \
+{d1,d2,...,dk}-dimensional array of integer numbers from PoissonDistribution[\
+\[Mu]].\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.649479544523196*^9},
+ CellTags->"Info3649486744-8338373"]
+}, Open  ]]
+},
+WindowSize->{1881, 1059},
+WindowMargins->{{257, Automatic}, {Automatic, 92}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3649486742-8338373"->{
+  Cell[755, 27, 2708, 42, 440, "Print",
+   CellTags->"Info3649486742-8338373"]},
+ "Info3649486744-8338373"->{
+  Cell[3631, 78, 2271, 35, 402, "Print",
+   CellTags->"Info3649486744-8338373"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3649486742-8338373", 6242, 127},
+ {"Info3649486744-8338373", 6352, 130}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 173, 3, 32, "Input"],
+Cell[755, 27, 2708, 42, 440, "Print",
+ CellTags->"Info3649486742-8338373"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3500, 74, 128, 2, 32, "Input"],
+Cell[3631, 78, 2271, 35, 402, "Print",
+ CellTags->"Info3649486744-8338373"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
