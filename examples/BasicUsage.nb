@@ -1,0 +1,974 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     35248,        965]
+NotebookOptionsPosition[     32026,        846]
+NotebookOutlinePosition[     32386,        862]
+CellTagsIndexPosition[     32343,        859]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Package loading", "Subtitle",
+ CellChangeTimes->{{3.617949147896041*^9, 3.617949157950199*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"$Path", " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "This", " ", "allows", " ", "to", " ", "see", " ", "which", " ", 
+     "directories", " ", "can", " ", "be", " ", "used", " ", "to", " ", 
+     "store", " ", 
+     RowBox[{"RandFile", ".", "m"}], " ", "package"}], ",", " ", 
+    RowBox[{
+     RowBox[{"sample_data", ".", "bin"}], " ", "file", " ", "ad", " ", 
+     "other", " ", "sample", " ", "files"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.6179488310897408`*^9, 3.617948880308154*^9}, {
+   3.617949127039633*^9, 3.617949133223584*^9}, 3.6179495593191557`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"/usr/local/Wolfram/Mathematica/9.0/SystemFiles/Links\"\>", 
+   ",", "\<\"/home/jam/.Mathematica/Kernel\"\>", 
+   ",", "\<\"/home/jam/.Mathematica/Autoload\"\>", 
+   ",", "\<\"/home/jam/.Mathematica/Applications\"\>", 
+   ",", "\<\"/usr/share/Mathematica/Kernel\"\>", 
+   ",", "\<\"/usr/share/Mathematica/Autoload\"\>", 
+   ",", "\<\"/usr/share/Mathematica/Applications\"\>", ",", "\<\".\"\>", 
+   ",", "\<\"/home/jam\"\>", 
+   ",", "\<\"/usr/local/Wolfram/Mathematica/9.0/AddOns/Packages\"\>", 
+   ",", "\<\"/usr/local/Wolfram/Mathematica/9.0/AddOns/LegacyPackages\"\>", 
+   ",", "\<\"/usr/local/Wolfram/Mathematica/9.0/SystemFiles/Autoload\"\>", 
+   ",", "\<\"/usr/local/Wolfram/Mathematica/9.0/AddOns/Autoload\"\>", 
+   ",", "\<\"/usr/local/Wolfram/Mathematica/9.0/AddOns/Applications\"\>", 
+   ",", "\<\"/usr/local/Wolfram/Mathematica/9.0/AddOns/ExtraPackages\"\>", 
+   ",", "\<\"/usr/local/Wolfram/Mathematica/9.0/SystemFiles/Kernel/Packages\"\
+\>", ",", \
+"\<\"/usr/local/Wolfram/Mathematica/9.0/Documentation/English/System\"\>", 
+   ",", "\<\"/usr/local/Wolfram/Mathematica/9.0/SystemFiles/Data/ICC\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.649481581096073*^9, 3.649481821860063*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"<<", "RandFile`", " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"RandFile", ".", "m"}], " ", "has", " ", "to", " ", "be", " ", 
+    "among", " ", "directories", " ", "in", " ", "$Path", " ", 
+    RowBox[{"variable", ".", " ", "If"}], " ", "unsure", " ", "use", " ", 
+    "the", " ", "current", " ", "notebook", " ", "directory"}], " ", 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.617607712208952*^9, 3.617607719662401*^9}, {
+   3.6179492015280333`*^9, 3.617949270956709*^9}, 3.617949561678969*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package RandFile version \"\>", 
+   "\[InvisibleSpace]", "\<\"0.1.2\"\>", 
+   "\[InvisibleSpace]", "\<\" (last modification: \"\>", 
+   "\[InvisibleSpace]", "\<\"25/08/2015\"\>", 
+   "\[InvisibleSpace]", "\<\").\"\>"}],
+  SequenceForm[
+  "Package RandFile version ", "0.1.2", " (last modification: ", "25/08/2015",
+    ")."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.649481582028967*^9, 3.6494818224428053`*^9}],
+
+Cell[BoxData["\<\"Usage notes:\"\>"], "Print",
+ CellChangeTimes->{3.649481582028967*^9, 3.649481822474715*^9}],
+
+Cell[BoxData["\<\"1) Almost all provided functions require to set a global \
+variable pointing to file with random data! This can be done by using \
+\\!\\(\\*\\nStyleBox[\\\"SetTrueRandomDataFile\\\",\\nFontWeight->\\\"Bold\\\"\
+]\\) function. For example \
+\\!\\(\\*\\nStyleBox[\\\"SetTrueRandomDataFile\\\",\\nFontWeight->\\\"Bold\\\"\
+]\\)[\\\"/home/user_name/data/sample_file.bin\\\"] for GNU/Linux systems or \
+\\!\\(\\*StyleBox[\\\"SetTrueRandomDataFile\\\",\\nFontWeight->\\\"Bold\\\"]\\\
+)[\\\"/Users/user_name/data/sample_file.bin\\\"] for OS X systems. Please \
+mind that it is advised to use this function only once during the \
+session.\"\>"], "Print",
+ CellChangeTimes->{3.649481582028967*^9, 3.649481822478224*^9}],
+
+Cell[BoxData["\<\"2) If you intend to use \
+\\!\\(\\*\\nStyleBox[\\\"TrueRandomSequence\\\",\\nFontWeight->\\\"Bold\\\"]\\\
+) function you must use \
+\\!\\(\\*\\nStyleBox[\\\"SetMaxTrueRandomSequenceLength\\\",\\nFontWeight->\\\
+\"Bold\\\"]\\) and declare at least one sequence. Currently declared \
+sequences can be displayed by calling \
+\\!\\(\\*\\nStyleBox[\\\"GetTrueRandomDataMarkers\\\",\\nFontWeight->\\\"Bold\
+\\\"]\\)[]. Once defined, the used maximal length cannot be changed during \
+the session.\"\>"], "Print",
+ CellChangeTimes->{3.649481582028967*^9, 3.649481822479967*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<RandFile`\>\"", "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "This", " ", "is", " ", "equivalent", " ", "with", " ", "the", " ", 
+    "above"}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.618034393012141*^9, 3.6180344147707043`*^9}, {
+  3.6180363404303513`*^9, 3.6180363619044952`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Random file specification", "Subtitle",
+ CellChangeTimes->{{3.617948719334962*^9, 3.6179487290612164`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CurrentDirectory", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.649481863769026*^9, 3.649481874046854*^9}}],
+
+Cell[BoxData[
+ RowBox[{"GetDirectory", "[", "]"}]], "Output",
+ CellChangeTimes->{3.649481854675705*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "["}]], "Input",
+ CellChangeTimes->{{3.649481841523665*^9, 3.649481849615847*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetTrueRandomDataFile", "[", "\"\<sample_data.bin\>\"", "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "A", " ", "file", " ", "can", " ", "be", " ", "used", " ", "as", " ", "an",
+     " ", "argument", " ", "for", " ", "this", " ", "command", " ", "only", 
+    " ", "once", " ", "during", " ", "the", " ", "session"}], " ", 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.617607797820446*^9, 3.6176078303115892`*^9}, {
+   3.617948766899868*^9, 3.617948785246235*^9}, 3.6179488951481133`*^9, {
+   3.617949090676228*^9, 3.617949119891102*^9}, 3.617949303902114*^9, 
+   3.618033492963044*^9, {3.61803477024369*^9, 3.618034789076984*^9}, 
+   3.61803485213413*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"RandFile`Private`RandFileStreamAlreadyOpen", "::", "fileerr"}], 
+   "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"File \
+\[NoBreak]\\!\\(\\\"/home/jam/Kuweta/notatki/programming/rand_file/package/\
+rand_file-0.1.0/sample_data.bin\\\"\\)\[NoBreak] is already opened for \
+reading. I won't open new stream for this file.\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.649489137992721*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"SetTrueRandomDataFile", "[", "\"\<new_sample_data.bin\>\"", "]"}],
+    " ", "*)"}], 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "The", " ", "source", " ", "of", " ", "random", " ", "data", " ", "can", 
+    " ", "be", " ", "changed", " ", "during", " ", "the", " ", "session"}], 
+   " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.618034688587368*^9, 3.618034707074889*^9}, {
+  3.618034795650671*^9, 3.618034868379302*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Random integers", "Subtitle",
+ CellChangeTimes->{{3.617949313894998*^9, 3.617949322726811*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomInteger", "[", "]"}], 
+  RowBox[{"(*", " ", 
+   RowBox[{"Uniformly", " ", "distributed", " ", "0", " ", "or", " ", "1"}], 
+   " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.6179493239938097`*^9, 3.617949389833194*^9}, 
+   3.617949555917066*^9, {3.649481618181728*^9, 3.6494816405640097`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "0", "}"}]], "Output",
+ CellChangeTimes->{
+  3.649479599899518*^9, 3.6494815137156887`*^9, 3.649481547549124*^9, {
+   3.6494816087268257`*^9, 3.649481641008624*^9}, 3.649484821246578*^9, 
+   3.649489195370181*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomInteger", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "10"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "2"}], "}"}]}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"2", "\[Cross]", "2"}], " ", "table", " ", "with", " ", "random", 
+    " ", "interges", " ", "in", " ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", "1", ",", " ", "2"}], "}"}], "."}]}], " ", 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.617949383241544*^9, 3.617949433683579*^9}, 
+   3.617949471728416*^9, {3.6494816482415123`*^9, 3.649481648540653*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"8", ",", "4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.649479605469225*^9, {3.649481643004847*^9, 3.649481649046558*^9}, 
+   3.6494848228946037`*^9, 3.6494891960328197`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomInteger", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "10"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"3", ",", "3", ",", "3"}], "}"}]}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"3", "\[Cross]", "3", "\[Cross]", "3"}], " ", "table", " ", 
+    "with", " ", "random", " ", "interges", " ", "in", " ", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", " ", "1", ",", " ", "\[Ellipsis]", ",", " ", "10"}], 
+     "}"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.617949455295123*^9, 3.617949497422933*^9}, 
+   3.617949558209917*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"4", ",", "1", ",", "4"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"8", ",", "6", ",", "5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"6", ",", "0", ",", "4"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"7", ",", "6", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"10", ",", "6", ",", "6"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "5", ",", "8"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"6", ",", "1", ",", "5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", "10", ",", "10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"10", ",", "5", ",", "4"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.64947960636259*^9, 3.649481651645187*^9, {3.649484826554371*^9, 
+   3.649484827926703*^9}, 3.649489196655154*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Random reals", "Subtitle",
+ CellChangeTimes->{{3.617949313894998*^9, 3.617949322726811*^9}, {
+  3.617949525124894*^9, 3.617949525743074*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomReal", "[", "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Uniformly", " ", "distributed", " ", 
+    RowBox[{"on", " ", "[", 
+     RowBox[{"0", ",", "1"}], "]"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.617949531896352*^9, 3.6179495520525017`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "0.8988484984729439`", "}"}]], "Output",
+ CellChangeTimes->{3.649479611463629*^9, 3.649484829970085*^9, 
+  3.649489199217307*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomReal", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "2"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "2"}], "}"}]}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"2", "\[Cross]", "2"}], " ", "table", " ", "with", " ", "random", 
+    " ", "real", " ", "numbers", " ", "uniformly", " ", "distributed", " ", 
+    RowBox[{"on", " ", "[", 
+     RowBox[{"0", ",", " ", "2"}], "]"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.617949570062924*^9, 3.617949577972494*^9}, {
+  3.617949646919435*^9, 3.6179496556472*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.9238540311343968`", ",", "1.7783026238903403`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1.5716386446729302`", ",", "1.5045335069298744`"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.6494796122357073`*^9, 3.6494848328823442`*^9, 
+  3.649489199791217*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomReal", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"0", ",", "10"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"3", ",", "3", ",", "3"}], "}"}]}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"3", "\[Cross]", "3", "\[Cross]", "3"}], " ", "table", " ", 
+    "with", " ", "random", " ", "reals", " ", 
+    RowBox[{"on", " ", "[", 
+     RowBox[{"0", ",", " ", "10"}], "]"}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.6179495891670628`*^9, 3.617949605708082*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "4.743799632415175`", ",", "9.894852919969708`", ",", 
+       "4.615625434089452`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "7.102270771283656`", ",", "1.5436320286244154`", ",", 
+       "8.282912150025368`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "2.6557625574059784`", ",", "5.7812364073470235`", ",", 
+       "2.0036562043242157`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "2.100964169949293`", ",", "5.772908416111022`", ",", 
+       "5.16485609812662`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "4.756968889851123`", ",", "9.542227995116264`", ",", 
+       "9.681940106675029`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "7.170113702304661`", ",", "4.71965225180611`", ",", 
+       "6.478574979119003`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "6.119659529067576`", ",", "0.37348711397498846`", ",", 
+       "5.809507498051971`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "2.734903022646904`", ",", "0.05255523370578885`", ",", 
+       "5.679734803270549`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "4.785526220221072`", ",", "9.89018191350624`", ",", 
+       "3.9765974949114025`"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.649479612972451*^9, 3.6494848349720078`*^9, 
+  3.649489200819474*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomReal", "[", 
+   RowBox[{
+    RowBox[{"NormalDistribution", "[", 
+     RowBox[{"0", ",", "10"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"3", ",", "3", ",", "3"}], "}"}]}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"3", "\[Cross]", "3", "\[Cross]", "3"}], " ", "table", " ", 
+    "with", " ", "random", " ", "reals", " ", "with", " ", "normal", " ", 
+    "distribution", " ", "with", " ", "the", " ", "mean", " ", "0", " ", 
+    "and", " ", "the", " ", "standard", " ", "deviation", " ", "10"}], " ", 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.61794962161316*^9, 3.6179496313354673`*^9}, {
+  3.617949669722598*^9, 3.61794971815104*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "6.155114444612712`"}], ",", 
+       RowBox[{"-", "19.458100233625192`"}], ",", 
+       RowBox[{"-", "14.204156463202645`"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "15.634491192142171`"}], ",", 
+       RowBox[{"-", "0.22715711741909175`"}], ",", 
+       RowBox[{"-", "2.113653446028561`"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.046075578833619`", ",", 
+       RowBox[{"-", "13.380296088398495`"}], ",", "1.1371170177929721`"}], 
+      "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"3.9027709781113837`", ",", "10.123332147005993`", ",", 
+       RowBox[{"-", "17.197052271727216`"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "0.1216945408571711`"}], ",", 
+       RowBox[{"-", "1.9220515556719469`"}], ",", 
+       RowBox[{"-", "1.206178915477407`"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"4.278473321580026`", ",", 
+       RowBox[{"-", "6.730674009223866`"}], ",", "6.957963693293787`"}], 
+      "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "10.115117651031788`"}], ",", 
+       RowBox[{"-", "11.279380372368875`"}], ",", 
+       RowBox[{"-", "6.79505981120409`"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"7.8255701310725385`", ",", 
+       RowBox[{"-", "21.840665008628168`"}], ",", 
+       RowBox[{"-", "0.6539546938726549`"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "6.498960514565551`", ",", "6.537601412573241`", ",", 
+       "12.253811040050918`"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.6494796136935673`*^9, 3.649484837870406*^9, 
+  3.649489201709935*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Random choice", "Subtitle",
+ CellChangeTimes->{{3.617949728832542*^9, 3.617949734777733*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", 
+  RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6494796354572*^9, 3.649479640191703*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomChoice", "[", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "A", " ", "true", " ", "random", " ", "choice", " ", "of", " ", "one", " ",
+     "of", " ", 
+    RowBox[{"{", 
+     RowBox[{"a", ",", " ", "b", ",", " ", "c", ",", " ", "d"}], "}"}]}], " ",
+    "*)"}]}]], "Input",
+ CellChangeTimes->{{3.617949750408577*^9, 3.617949777708868*^9}, {
+  3.649479633593768*^9, 3.6494796442445602`*^9}}],
+
+Cell[BoxData["a"], "Output",
+ CellChangeTimes->{{3.649479616121689*^9, 3.649479644681491*^9}, 
+   3.649484841281506*^9, {3.649488976104809*^9, 3.64948902201117*^9}, 
+   3.649489058782378*^9, 3.649489092897251*^9, 3.649489213279203*^9, 
+   3.649491326793895*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomChoice", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}], ",", " ", "10"}], 
+   "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "10", " ", "true", " ", "random", " ", "choices", " ", "of", " ", "one", 
+    " ", "of", " ", 
+    RowBox[{"{", 
+     RowBox[{"a", ",", " ", "b", ",", " ", "c", ",", " ", "d"}], "}"}]}], " ",
+    "*)"}]}]], "Input",
+ CellChangeTimes->{{3.617949750408577*^9, 3.617949793555283*^9}, {
+  3.649491274754037*^9, 3.649491280888303*^9}, {3.649491336843212*^9, 
+  3.649491337155519*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "c", ",", "a", ",", "a", ",", "b", ",", "b", ",", "a", ",", "b", ",", "d", 
+   ",", "d", ",", "d"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.649490926785261*^9, 3.6494910079102697`*^9, {3.649491272603162*^9, 
+   3.649491337714466*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomSample", "[", 
+   RowBox[{"{", 
+    RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "A", " ", "true", " ", "random", " ", "permutation", " ", "of", " ", "the",
+     " ", "list", " ", 
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}]}], " ", 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.6179498296095953`*^9, 3.6179498537000847`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"d", ",", "c", ",", "a", ",", "b"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.649479620374226*^9, 3.649484852243737*^9, {3.649491310026305*^9, 
+   3.649491339824995*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Variance", "[", 
+  RowBox[{"PoissonDistribution", "[", "1.1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6494918752406197`*^9, 3.6494919041524067`*^9}}],
+
+Cell[BoxData["1.1`"], "Output",
+ CellChangeTimes->{{3.649491868235005*^9, 3.64949190453391*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InverseCDF", "[", 
+  RowBox[{"PoissonDistribution", "[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.649491850830585*^9, 3.649491863410062*^9}}],
+
+Cell[BoxData[
+ RowBox[{"InverseCDF", "[", 
+  RowBox[{"PoissonDistribution", "[", "1", "]"}], "]"}]], "Output",
+ CellChangeTimes->{{3.649491821961224*^9, 3.649491863675025*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TrueRandomInteger", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1"}], "}"}], ",", "200"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", 
+   ",", "1", ",", "0", ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", 
+   "1", ",", "0", ",", "0", ",", "1", ",", "1", ",", "1", ",", "0", ",", "0", 
+   ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", ",", "1", ",", 
+   "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", 
+   ",", "1", ",", "0", ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", 
+   "1", ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", 
+   ",", "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", 
+   "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", 
+   ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", ",", "1", ",", "1", ",", 
+   "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "1", ",", "0", 
+   ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "0", ",", "1", ",", 
+   "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", 
+   ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", ",", "0", ",", 
+   "1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "1", ",", "1", ",", 
+   "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "0", 
+   ",", "0", ",", "0", ",", "1", ",", "1", ",", "1", ",", "0", ",", "1", ",", 
+   "1", ",", "1", ",", "1", ",", "0", ",", "1", ",", "0", ",", "0", ",", "1", 
+   ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", 
+   "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", 
+   ",", "1", ",", "0", ",", "0", ",", "1", ",", "0", ",", "1", ",", "1", ",", 
+   "1", ",", "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", "0", ",", "1", 
+   ",", "0", ",", "0", ",", "0", ",", "0", ",", "1", ",", "1", ",", "1", ",", 
+   "0", ",", "0", ",", "0", ",", "1", ",", "0", ",", "0", ",", "0", ",", "0", 
+   ",", "1", ",", "0", ",", "1", ",", "1", ",", "1", ",", "0", ",", "0", ",", 
+   "1", ",", "1", ",", "0", ",", "0", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{3.6494919125626497`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"InverseCDF", "[", 
+     RowBox[{
+      RowBox[{"PoissonDistribution", "[", "10", "]"}], ",", "2"}], "]"}], 
+    "&"}], ",", 
+   RowBox[{"TrueRandomInteger", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "200"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.649491645363985*^9, 3.6494916844931602`*^9}, {
+  3.64949176708996*^9, 3.649491773321452*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", 
+   ",", "\[Infinity]", ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", ",", 
+   "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", ",", 
+   "\[Infinity]", ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", ",", 
+   "\[Infinity]", ",", "0", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", 
+   ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+   "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", 
+   "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "0", 
+   ",", "0", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", 
+   "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "0", ",", "0", ",", 
+   "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", 
+   "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "0", ",", "\[Infinity]", 
+   ",", "0", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", 
+   "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "0", ",", "0", ",", 
+   "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", 
+   "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", 
+   ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", 
+   "0", ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", "\[Infinity]", 
+   ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", 
+   "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", 
+   ",", "0", ",", "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", 
+   "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", 
+   ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", ",", 
+   "0", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", 
+   ",", "\[Infinity]", ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", ",", 
+   "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", 
+   ",", "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", 
+   "0", ",", "\[Infinity]", ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", 
+   ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", 
+   "0", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", 
+   ",", "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", 
+   "0", ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", "0", ",", 
+   "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "0", ",", "\[Infinity]", 
+   ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "0", ",", 
+   "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", 
+   ",", "0", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", 
+   ",", "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", 
+   "0", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", 
+   ",", "0", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "0", ",", 
+   "\[Infinity]"}], "}"}]], "Output",
+ CellChangeTimes->{{3.649491651149469*^9, 3.649491685040204*^9}, 
+   3.6494917675029707`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandomInteger", "[", 
+   RowBox[{
+    RowBox[{"PoissonDistribution", "[", "2", "]"}], ",", "100"}], "]"}], " ", 
+  
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Random", " ", "number", " ", "sampled", " ", "from", " ", 
+    "PoissonDistribution", " ", "with", " ", "mean", " ", "10"}], " ", 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.617950722579948*^9, 3.617950774472685*^9}, {
+  3.64948487286864*^9, 3.6494848731885757`*^9}, {3.6494916082686167`*^9, 
+  3.649491630038587*^9}, {3.649491732131092*^9, 3.649491759698595*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", 
+   ",", "0", ",", "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", ",", 
+   "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", 
+   ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", 
+   "0", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", 
+   ",", "0", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", 
+   "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", 
+   ",", "0", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", 
+   "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", 
+   "\[Infinity]", ",", "0", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", 
+   ",", "0", ",", "0", ",", "\[Infinity]", ",", "\[Infinity]", ",", 
+   "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", 
+   "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", 
+   "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "0", ",", "\[Infinity]", 
+   ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "\[Infinity]", ",", 
+   "0", ",", "0", ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", 
+   "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", "0", 
+   ",", "\[Infinity]", ",", "0", ",", "0", ",", "0", ",", "\[Infinity]", ",", 
+   "\[Infinity]", ",", "\[Infinity]", ",", "\[Infinity]", ",", "0", ",", "0", 
+   ",", "0", ",", "\[Infinity]", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.649479623003375*^9, {3.649484867385717*^9, 3.649484875416519*^9}, 
+   3.649491313520678*^9, {3.649491593878788*^9, 3.649491632369289*^9}, {
+   3.649491728171523*^9, 3.649491759867861*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Frequencies", " ", "of", " ", "1000", " ", "numbers", " ", "sampled", " ",
+     "from", " ", "PoissonDistribution", " ", "with", " ", "mean", " ", "2", 
+    " ", "with", " ", "random", " ", "data", " ", "obtained", " ", "from", 
+    " ", 
+    RowBox[{"ssample_data", ".", "bin"}], " ", "file"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"ListPlot", "[", 
+   RowBox[{
+    RowBox[{"BinCounts", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"TrueRandomInteger", "[", 
+         RowBox[{
+          RowBox[{"PoissonDistribution", "[", "2", "]"}], ",", 
+          "\"\<sample_data.bin\>\""}], "]"}], ",", 
+        RowBox[{"{", "1000", "}"}]}], "]"}], ",", 
+      RowBox[{"{", "1", "}"}]}], "]"}], ",", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+    RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "15"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "300"}], "}"}]}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.617950781837726*^9, 3.617950929719191*^9}, {
+   3.617951098269539*^9, 3.61795129149701*^9}, 3.618036381783867*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Deprecated Random[] interface", "Subtitle",
+ CellChangeTimes->{{3.617949875524004*^9, 3.6179498854244213`*^9}, {
+  3.617949980302631*^9, 3.617949984701046*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandom", "[", 
+   RowBox[{"Real", ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "10"}], "}"}]}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "Random", " ", "real", " ", "uniformly", " ", "distributed", " ", 
+     RowBox[{"on", " ", "[", 
+      RowBox[{"0", ",", "10"}], "]"}]}], " ", "-", " ", 
+    RowBox[{
+    "this", " ", "type", " ", "of", " ", "call", " ", "is", " ", "deprecated",
+      " ", "as", " ", "of", " ", "Version", " ", "6.0"}]}], " ", 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.6179498896408587`*^9, 3.617949975148807*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TrueRandom", "[", 
+   RowBox[{"Integer", ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "10"}], "}"}]}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "Random", " ", "integer", " ", "uniformly", " ", "drawn", " ", "from", 
+     " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", "1", ",", " ", "\[Ellipsis]", ",", " ", "10"}], 
+      "}"}]}], " ", "-", " ", 
+    RowBox[{
+    "this", " ", "type", " ", "of", " ", "call", " ", "is", " ", "deprecated",
+      " ", "as", " ", "of", " ", "Version", " ", "6.0"}]}], " ", 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.6179498896408587`*^9, 3.617950050761508*^9}}]
+}, Open  ]]
+},
+WindowSize->{1873, 1176},
+WindowMargins->{{Automatic, 216}, {Automatic, 56}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 101, 1, 52, "Subtitle"],
+Cell[CellGroupData[{
+Cell[705, 27, 612, 13, 32, "Input"],
+Cell[1320, 42, 1242, 21, 121, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2599, 68, 529, 10, 32, "Input"],
+Cell[CellGroupData[{
+Cell[3153, 82, 470, 11, 23, "Print"],
+Cell[3626, 95, 110, 1, 23, "Print"],
+Cell[3739, 98, 728, 10, 62, "Print"],
+Cell[4470, 110, 588, 9, 43, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[5085, 123, 348, 8, 32, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5470, 136, 113, 1, 52, "Subtitle"],
+Cell[CellGroupData[{
+Cell[5608, 141, 130, 2, 32, "Input"],
+Cell[5741, 145, 103, 2, 32, "Output"]
+}, Open  ]],
+Cell[5859, 150, 121, 2, 32, "Input"],
+Cell[CellGroupData[{
+Cell[6005, 156, 694, 13, 32, "Input"],
+Cell[6702, 171, 436, 10, 24, "Message"]
+}, Open  ]],
+Cell[7153, 184, 468, 11, 32, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7658, 200, 101, 1, 52, "Subtitle"],
+Cell[CellGroupData[{
+Cell[7784, 205, 337, 7, 32, "Input"],
+Cell[8124, 214, 241, 5, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8402, 224, 623, 17, 32, "Input"],
+Cell[9028, 243, 314, 9, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9379, 257, 608, 16, 32, "Input"],
+Cell[9990, 275, 969, 29, 32, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11008, 310, 147, 2, 52, "Subtitle"],
+Cell[CellGroupData[{
+Cell[11180, 316, 302, 7, 32, "Input"],
+Cell[11485, 325, 157, 3, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11679, 333, 601, 15, 32, "Input"],
+Cell[12283, 350, 339, 9, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12659, 364, 532, 14, 32, "Input"],
+Cell[13194, 380, 1518, 46, 55, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14749, 431, 704, 16, 32, "Input"],
+Cell[15456, 449, 1814, 49, 55, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17319, 504, 99, 1, 52, "Subtitle"],
+Cell[17421, 507, 165, 3, 32, "Input"],
+Cell[CellGroupData[{
+Cell[17611, 514, 513, 13, 32, "Input"],
+Cell[18127, 529, 261, 4, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18425, 538, 598, 16, 32, "Input"],
+Cell[19026, 556, 279, 7, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19342, 568, 458, 12, 32, "Input"],
+Cell[19803, 582, 210, 5, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20050, 592, 179, 3, 32, "Input"],
+Cell[20232, 597, 96, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20365, 603, 175, 3, 32, "Input"],
+Cell[20543, 608, 176, 3, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20756, 616, 144, 4, 32, "Input"],
+Cell[20903, 622, 2204, 30, 77, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23144, 657, 460, 13, 32, "Input"],
+Cell[23607, 672, 3270, 45, 77, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26914, 722, 559, 13, 32, "Input"],
+Cell[27476, 737, 1775, 26, 55, "Output"]
+}, Open  ]],
+Cell[29266, 766, 1269, 32, 55, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30572, 803, 166, 2, 52, "Subtitle"],
+Cell[30741, 807, 603, 16, 32, "Input"],
+Cell[31347, 825, 663, 18, 32, "Input"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

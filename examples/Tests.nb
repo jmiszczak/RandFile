@@ -1,0 +1,338 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     11261,        329]
+NotebookOptionsPosition[      9980,        278]
+NotebookOutlinePosition[     10339,        294]
+CellTagsIndexPosition[     10296,        291]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6495680032208233`*^9, 3.649568004487967*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"<<", "RandFile`"}]], "Input",
+ CellChangeTimes->{{3.649565930944524*^9, 3.649565937322905*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package RandFile version \"\>", 
+   "\[InvisibleSpace]", "\<\"0.1.3\"\>", 
+   "\[InvisibleSpace]", "\<\" (last modification: \"\>", 
+   "\[InvisibleSpace]", "\<\"26/08/2915\"\>", 
+   "\[InvisibleSpace]", "\<\").\"\>"}],
+  SequenceForm[
+  "Package RandFile version ", "0.1.3", " (last modification: ", "26/08/2915",
+    ")."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.649565937751169*^9, 3.64956601586734*^9, 
+  3.649568007520405*^9}],
+
+Cell[BoxData["\<\"Usage notes:\"\>"], "Print",
+ CellChangeTimes->{3.649565937751169*^9, 3.64956601586734*^9, 
+  3.649568007521394*^9}],
+
+Cell[BoxData["\<\"1) Almost all provided functions require to set a global \
+variable pointing to file with random data! This can be done by using \
+\\!\\(\\*\\nStyleBox[\\\"SetTrueRandomDataFile\\\",\\nFontWeight->\\\"Bold\\\"\
+]\\) function. For example \
+\\!\\(\\*\\nStyleBox[\\\"SetTrueRandomDataFile\\\",\\nFontWeight->\\\"Bold\\\"\
+]\\)[\\\"/home/user_name/data/sample_file.bin\\\"] for GNU/Linux systems or \
+\\!\\(\\*StyleBox[\\\"SetTrueRandomDataFile\\\",\\nFontWeight->\\\"Bold\\\"]\\\
+)[\\\"/Users/user_name/data/sample_file.bin\\\"] for OS X systems. Please \
+mind that it is advised to use this function only once during the \
+session.\"\>"], "Print",
+ CellChangeTimes->{3.649565937751169*^9, 3.64956601586734*^9, 
+  3.649568007523489*^9}],
+
+Cell[BoxData["\<\"2) If you intend to use \
+\\!\\(\\*\\nStyleBox[\\\"TrueRandomSequence\\\",\\nFontWeight->\\\"Bold\\\"]\\\
+) function you must use \
+\\!\\(\\*\\nStyleBox[\\\"SetMaxTrueRandomSequenceLength\\\",\\nFontWeight->\\\
+\"Bold\\\"]\\) and declare at least one sequence. Currently declared \
+sequences can be displayed by calling \
+\\!\\(\\*\\nStyleBox[\\\"GetTrueRandomDataMarkers\\\",\\nFontWeight->\\\"Bold\
+\\\"]\\)[]. Once defined, the used maximal length cannot be changed during \
+the session.\"\>"], "Print",
+ CellChangeTimes->{3.649565937751169*^9, 3.64956601586734*^9, 
+  3.649568007525172*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"workingDir", "=", 
+   RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dataFile", "=", "\"\<sample_data_10M.bin\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "workingDir", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"SetTrueRandomDataFile", "[", "dataFile", "]"}]}], "Input",
+ CellChangeTimes->{{3.649057311556868*^9, 3.64905731700344*^9}, 
+   3.6490573778308277`*^9, {3.649057557525384*^9, 3.649057565520668*^9}, {
+   3.6490577704038258`*^9, 3.649057770879016*^9}, 3.6490579554466667`*^9, {
+   3.649059594933611*^9, 3.649059597082079*^9}, {3.649139992500605*^9, 
+   3.649140003014786*^9}, {3.649565874998452*^9, 3.649565924646782*^9}}],
+
+Cell[BoxData["\<\"Using file \\\"sample_data_10M.bin\\\" which contains \
+10485760 bytes of data.\"\>"], "Print",
+ CellChangeTimes->{3.649141353564906*^9, 3.6494795825307426`*^9, 
+  3.649481604495881*^9, 3.649484817770856*^9, 3.64948918699025*^9, 
+  3.649566018927743*^9, 3.6495680077873297`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Streams", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.649059608405684*^9, 3.649059610309648*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"OutputStream", "[", 
+    RowBox[{"\<\"stdout\"\>", ",", "1"}], "]"}], ",", 
+   RowBox[{"OutputStream", "[", 
+    RowBox[{"\<\"stderr\"\>", ",", "2"}], "]"}], ",", 
+   RowBox[{"InputStream", "[", 
+    RowBox[{"\<\"/home/jam/Kuweta/notatki/programming/rand_file/package/rand_\
+file-0.1.3/RandFile_Examples/sample_data_10M.bin\"\>", ",", "72"}], "]"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.64905961070606*^9, 3.6490598212280293`*^9, 
+  3.649059857555561*^9, 3.649140025615322*^9, 3.649140200370294*^9, 
+  3.649140743011108*^9, 3.649140829672427*^9, 3.649141354125875*^9, 
+  3.649479583200481*^9, 3.6495660202053843`*^9, 3.649568008623906*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TrueRandomReal", "[", 
+  RowBox[{"1", ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "2", ",", "3"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.649059626169767*^9, 3.649059632133615*^9}, {
+  3.64905982530344*^9, 3.649059825450776*^9}, {3.649059861008041*^9, 
+  3.649059872048841*^9}, {3.6491400385360947`*^9, 3.6491400411250153`*^9}, {
+  3.64914007439032*^9, 3.649140077167449*^9}, {3.649140211580971*^9, 
+  3.6491402210391283`*^9}, {3.6491402781834917`*^9, 3.649140284938501*^9}, {
+  3.6491407482062273`*^9, 3.649140756650548*^9}, {3.649141359757125*^9, 
+  3.649141385956564*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "0.4463781979866326`", ",", "0.5860581579618156`", ",", 
+       "0.5069935959763825`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.05197856342419982`", ",", "0.2944014568347484`", ",", 
+       "0.810531388502568`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "0.4468416834715754`", ",", "0.3642476701643318`", ",", 
+       "0.8988484984729439`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.4619270155671984`", ",", "0.8891513119451702`", ",", 
+       "0.7858193223364651`"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.649059632446458*^9, {3.649059822153717*^9, 3.649059825848645*^9}, {
+   3.649059858389092*^9, 3.6490598769165916`*^9}, {3.649140027998324*^9, 
+   3.64914004156847*^9}, 3.649140077511766*^9, {3.6491401779777527`*^9, 
+   3.6491402213681383`*^9}, {3.649140279538158*^9, 3.6491402853171797`*^9}, {
+   3.649140733217676*^9, 3.649140757351602*^9}, {3.649140812510643*^9, 
+   3.6491408310446873`*^9}, {3.649141319359666*^9, 3.6491413242093277`*^9}, {
+   3.64914135507054*^9, 3.649141386264986*^9}, 3.649479584133957*^9, 
+   3.649566022650681*^9, 3.649568009668861*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TrueRandomReal", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "2", ",", "3"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.6491413771752367`*^9, {3.6495660263637342`*^9, 3.6495660307620687`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "0.516485609812662`", ",", "0.4756968889851123`", ",", 
+       "0.9542227995116264`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.9681940106675029`", ",", "0.7170113702304661`", ",", 
+       "0.471965225180611`"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "0.6478574979119003`", ",", "0.6119659529067576`", ",", 
+       "0.037348711397498846`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.5809507498051971`", ",", "0.2734903022646904`", ",", 
+       "0.005255523370578885`"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6491413693018*^9, 3.649141377687962*^9}, 
+   3.649479585969534*^9, {3.6495660234412127`*^9, 3.649566031139907*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TrueRandomChoice", "[", 
+  RowBox[{"{", 
+   RowBox[{"a", ",", "b", ",", "c", ",", "d"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.649566036890723*^9, 3.649566050325485*^9}}],
+
+Cell[BoxData["b"], "Output",
+ CellChangeTimes->{3.649566050719902*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TrueRandomInteger", "[", 
+  RowBox[{
+   RowBox[{"PoissonDistribution", "[", "4", "]"}], ",", "10"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.649566054881342*^9, 3.649566082845315*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "4", ",", "5", ",", "6", ",", "1", ",", "4", ",", "3", ",", "4", 
+   ",", "5", ",", "3"}], "}"}]], "Output",
+ CellChangeTimes->{{3.649566083326836*^9, 3.649566085160424*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"timingsRandfileListSSD", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"AbsoluteTiming", "[", 
+       RowBox[{
+        RowBox[{"TrueRandomReal", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1"}], "}"}], ",", 
+          RowBox[{"10", "^", "#"}]}], "]"}], ";"}], "]"}], "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "&"}], ",", 
+    RowBox[{"Range", "[", 
+     RowBox[{"1", ",", "5"}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.649567766675232*^9, 3.6495678158224277`*^9}, 
+   3.649567851828371*^9, {3.649567902663972*^9, 3.649567903774974*^9}, {
+   3.64956802376807*^9, 3.649568040987596*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.00160899999999999997017663400100673243`3.2271559573786535", ",", 
+   "0.01231400000000000029276581159365377971`4.110999062535087", ",", 
+   "0.03916399999999999742561485049918701407`4.613486955175065", ",", 
+   "0.45076800000000000201438865587988402694`5.674552991202278", ",", 
+   "21.76205900000000070804162533022463321686`7.358299896678666"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.649567840025475*^9, 3.649567874832921*^9, 
+  3.6495679276925793`*^9, 3.649568065573791*^9}]
+}, Open  ]]
+},
+WindowSize->{1367, 814},
+WindowMargins->{{Automatic, -10}, {Automatic, 37}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 120, 2, 32, "Input"],
+Cell[CellGroupData[{
+Cell[702, 26, 119, 2, 32, "Input"],
+Cell[CellGroupData[{
+Cell[846, 32, 492, 12, 23, "Print"],
+Cell[1341, 46, 134, 2, 23, "Print"],
+Cell[1478, 50, 752, 11, 81, "Print"],
+Cell[2233, 63, 612, 10, 62, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2894, 79, 761, 15, 99, "Input"],
+Cell[3658, 96, 296, 4, 23, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3991, 105, 121, 2, 32, "Input"],
+Cell[4115, 109, 698, 14, 55, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4850, 128, 609, 11, 32, "Input"],
+Cell[5462, 141, 1284, 31, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6783, 177, 295, 8, 32, "Input"],
+Cell[7081, 187, 839, 24, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7957, 216, 202, 4, 32, "Input"],
+Cell[8162, 222, 70, 1, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8269, 228, 210, 5, 32, "Input"],
+Cell[8482, 235, 226, 5, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8745, 245, 691, 18, 32, "Input"],
+Cell[9439, 265, 525, 10, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
