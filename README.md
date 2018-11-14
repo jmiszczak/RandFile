@@ -5,7 +5,7 @@
 
 # Installation
 
-In order to use the package, copy the downloaded file to .Mathematica/.Applications directory in your home directory and rename it to RandFile.m.
+In order to use the package, copy the downloaded file to `.Mathematica/.Applications` directory in your home directory and rename it to RandFile.m.
 
 # Documentation
 
@@ -18,8 +18,9 @@ Usage examples and sample random files are provided in `examples` directory.
 
 # Package history
 
+* 14/11/2018  Some improvements in the examples, new release (0.1.4).
 * 09/11/2018  Package uploded to GitHub.
-* 28/08/2015 	New! Improved version of the package (0.1.3) has been released.
+* 28/08/2015 	Improved version of the package (0.1.3) has been released.
   This version includes an improved management of the binary data.
 * 17/03/2015 	Improved version of the package (0.0.19) has been released.
   The updated version of the manuscript is available at 
