@@ -278,7 +278,7 @@ randfileHistory = {
 	{"0.1.0", "20/08/2015", "Jarek", "Rewritten main input stream management, efficiency improvements."},
 	{"0.1.1", "21/08/2015", "Jarek", "Code cleanups, documentation improvements. CallAsArrayVersion and CallAsTableVersion functions removed."},
 	{"0.1.2", "25/08/2015", "Jarek", "Improvements in functions generating integers and in the documentation."},
-	{"0.1.3", "26/08/2915", "Jarek", "Fixed problems with lists in the returned values."}
+	{"0.1.3", "26/08/2015", "Jarek", "Fixed problems with lists in the returned values."}
 };
 
 
