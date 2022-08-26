@@ -5,7 +5,7 @@
 
 # Installation
 
-In order to use the package, copy the downloaded file to `.Mathematica/.Applications` directory in your home directory and rename it to RandFile.m.
+In order to use the package, copy the downloaded file to `.Mathematica/Applications` directory in your home directory and rename it to RandFile.m.
 
 # Documentation
 
