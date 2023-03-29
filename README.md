@@ -1,3 +1,5 @@
+[!(https://img.shields.io/badge/arXiv-1302.2738-yellow)](https://arxiv.org/abs/1302.2738)
+
 # RandFile
 
 *RandFile.m* is a package for Mathematica computer algebra system which allows the exploitation of local files as sources of random data. RandFile allows to (re)use random data obtained from different sources and stored in a file.
