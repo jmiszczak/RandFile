@@ -1,4 +1,4 @@
-[!(https://img.shields.io/badge/arXiv-1302.2738-yellow)](https://arxiv.org/abs/1302.2738)
+[![https://arxiv.org/abs/1302.2738](https://img.shields.io/badge/arXiv-1302.2738-yellow)](https://arxiv.org/abs/1302.2738)
 
 # RandFile
 
